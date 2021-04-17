@@ -2,6 +2,17 @@ const express = require("express")
 const { graphqlHTTP } = require("express-graphql")
 const app = express()
 const schema = require("./schema/schema")
+const dotenv = require("dotenv")
+const errors = require("./middleware/errors")
+app.use(errors)
+dotenv.config({ path: "../.env" })
+
+
+// conect to database
+require('./startup/db')();
+// logging messages
+require('./startup/logging')();
+
 
 app.use('/graphql', graphqlHTTP({
     schema,
