@@ -6,7 +6,8 @@ const dotenv = require("dotenv")
 const errors = require("./middleware/errors")
 app.use(errors)
 dotenv.config({ path: "../.env" })
-
+const cors = require("cors")
+app.use(cors())
 
 // conect to database
 require('./startup/db')();
