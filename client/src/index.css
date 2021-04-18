@@ -1,0 +1,5 @@
+.minHeight {
+  min-height: 100vh;
+  background-color: #eee;
+  padding-top: 2rem;
+}
